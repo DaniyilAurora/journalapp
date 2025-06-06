@@ -13,3 +13,21 @@ def incorrect_format():
 @api.route('/hello')
 def hello():
     return "Hello from API!"
+
+
+# Gives all profiles in database
+@api.route("/profiles")
+def profiles():
+    return "profiles"
+
+
+# Gives all posts in database
+@api.route("/posts")
+def posts():
+    return "posts"
+
+
+# Gives all comments in database
+@api.route("/comments")
+def comments():
+    return "comments"
