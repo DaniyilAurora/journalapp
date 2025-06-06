@@ -1,18 +1,16 @@
-from flask import Flask, render_template
+from flask import Flask
+from routes.api_routes import api
+
+app = Flask(__name__)
+
+# Register the blueprint from routes/api_routes.py
+app.register_blueprint(api)
 
 
-class App():
-    # Initialise the app
-    def __init__(self):
-        self.app = Flask(__name__)
-        self.setup_routes()
+@app.route('/')
+def home():
+    return "Main page"
 
-    # Setup routes for the app
-    def setup_routes(self):
-        @self.app.route("/")
-        def main():
-            return render_template("index.html")
 
-    # Run the app
-    def run(self):
-        self.app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug=True)
