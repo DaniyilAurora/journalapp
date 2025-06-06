@@ -6,6 +6,10 @@ class Database():
         self.connection = sqlite3.connect("database.db", check_same_thread=False)
         self.cursor = self.connection.cursor()
 
+        # TODO: REMOVE LATER
+        #self.cursor.execute("INSERT INTO comments VALUES (2, 'another test comment 321', 1, 2, 2, '2025-06-06 15:00:00')")
+        #self.connection.commit()
+
         if self.is_first_launch():
             self.create_tables()
 

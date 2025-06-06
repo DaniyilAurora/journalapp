@@ -1,4 +1,5 @@
-from flask import Blueprint
+from flask import Blueprint, render_template
+from connection import Connection
 
 api = Blueprint('api', __name__, url_prefix='/api')
 
@@ -18,16 +19,31 @@ def hello():
 # Gives all profiles in database
 @api.route("/profiles")
 def profiles():
-    return "profiles"
+    connection = Connection()
+
+    profiles = connection.get_profiles()
+    connection.close()
+
+    return render_template("debug_info.html", rows=profiles)
 
 
 # Gives all posts in database
 @api.route("/posts")
 def posts():
-    return "posts"
+    connection = Connection()
+
+    posts = connection.get_posts()
+    connection.close()
+
+    return render_template("debug_info.html", rows=posts)
 
 
 # Gives all comments in database
 @api.route("/comments")
 def comments():
-    return "comments"
+    connection = Connection()
+
+    comments = connection.get_comments()
+    connection.close()
+
+    return render_template("debug_info.html", rows=comments)
