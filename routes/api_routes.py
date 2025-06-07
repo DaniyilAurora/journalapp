@@ -39,7 +39,7 @@ def add_profile():
     creation_date = request.form['creation_date'].strip()
 
     if id and username and password and creation_date:
-        connection.add_profile(id, username, password, creation_date)
+        connection.add_profile(int(id), username, password, creation_date)
     connection.close()
 
     return redirect(url_for('api.profiles'))
@@ -53,7 +53,7 @@ def delete_profile():
     id = request.form['id'].strip()
 
     if id:
-        connection.delete_profile(id)
+        connection.delete_profile(int(id))
     connection.close()
 
     return redirect(url_for('api.profiles'))
@@ -84,7 +84,7 @@ def add_post():
     likes = request.form['likes'].strip()
 
     if id and title and text and author_id and creation_date and likes:
-        connection.add_post(id, title, text, author_id, creation_date, likes)
+        connection.add_post(int(id), title, text, int(author_id), creation_date, int(likes))
     connection.close()
 
     return redirect(url_for('api.posts'))
@@ -98,7 +98,7 @@ def delete_post():
     id = request.form['id'].strip()
 
     if id:
-        connection.delete_post(id)
+        connection.delete_post(int(id))
     connection.close()
 
     return redirect(url_for('api.posts'))
@@ -129,7 +129,7 @@ def add_comment():
     creation_date = request.form['creation_date'].strip()
 
     if id and text and likes and author_id and post_id and creation_date:
-        connection.add_comment(id, text, likes, author_id, post_id, creation_date)
+        connection.add_comment(int(id), text, int(likes), int(author_id), int(post_id), creation_date)
     connection.close()
 
     return redirect(url_for('api.comments'))
@@ -143,7 +143,7 @@ def delete_comment():
     id = request.form['id'].strip()
 
     if id:
-        connection.delete_comment(id)
+        connection.delete_comment(int(id))
     connection.close()
 
     return redirect(url_for('api.comments'))
