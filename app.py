@@ -17,8 +17,14 @@ def home():
     # Get all posts to display
     connection = Connection()
     posts = connection.get_posts()
-    
-    return render_template("index.html", posts=posts)
+
+    # Returns usernames of the posts authors
+    usernames = []
+    for post in posts:
+        author_id = int(post[3])
+        usernames.append(str(connection.get_profile_username_by_id(author_id)[0]))
+
+    return render_template("index.html", posts=posts, usernames=usernames)
 
 
 # Run the app

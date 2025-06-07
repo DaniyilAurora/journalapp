@@ -7,6 +7,12 @@ class Connection():
         self.connection = sqlite3.connect("database.db", check_same_thread=False)
         self.cursor = self.connection.cursor()
 
+    # Returns profile username by the id given
+    def get_profile_username_by_id(self, id: int) -> str:
+        self.cursor.execute("SELECT username FROM profiles WHERE id = ?;", (id,))
+        username = self.cursor.fetchone()
+        return username
+
     # Returns all profiles
     def get_profiles(self) -> list[str]:
         self.cursor.execute("""
