@@ -19,5 +19,27 @@
     {% endfor %}
     </table>
     </div>
+    <br>
+        <div class="add">
+        <h3>Add new record</h3>
+        <form action="/api/{{ table_name}}/add" method="POST">
+            {% for info in information %}
+            <label for="{{ info }}">{{ info }}</label>
+            <input type="text" id="{{ info }}" name="{{ info }}" placeholder="{{ info }}">
+            <br>
+            {% endfor %}
+            <button type="submit">Add</button>
+        </form>
+    </div>
+    <br>
+    <div class="delete">
+        <h3>Delete record</h3>
+        <form action="/api/{{ table_name}}/delete" method="POST">
+            <label for="id">id:</label>
+            <input type="number" id="id" name="id" placeholder="id">
+            <br>
+            <button type="submit">Delete</button>
+        </form>
+    </div>
 </body>
 </html>

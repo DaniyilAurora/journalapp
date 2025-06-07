@@ -7,8 +7,8 @@ class Database():
         self.cursor = self.connection.cursor()
 
         # TODO: REMOVE LATER
-        #self.cursor.execute("INSERT INTO comments VALUES (2, 'another test comment 321', 1, 2, 2, '2025-06-06 15:00:00')")
-        #self.connection.commit()
+        # self.cursor.execute("INSERT INTO comments VALUES (2, 'another test comment 321', 1, 2, 2, '2025-06-06 15:00:00')")
+        # self.connection.commit()
 
         if self.is_first_launch():
             self.create_tables()
