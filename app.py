@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 from routes.api_routes import api
 from database import Database
+from connection import Connection
 
 app = Flask(__name__)
 
@@ -13,8 +14,13 @@ db = Database()
 
 @app.route('/')
 def home():
-    return render_template("index.html")
+    # Get all posts to display
+    connection = Connection()
+    posts = connection.get_posts()
+    
+    return render_template("index.html", posts=posts)
 
 
+# Run the app
 if __name__ == '__main__':
     app.run(debug=True)

@@ -3,9 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <title>Main Page | Journal App</title>
 </head>
 <body>
-    <h1>Hello, World!</h1>
+    {% for post in posts %}
+    <div class="post">
+        <p class="title">{{ post[1]}}</p>
+        <p class="text">{{ post[2]}}</p>
+        <p class="author">Author: {{ post[3] }}</p>
+        <p class="creation-date">{{ post[4] }}</p>
+        <p class="likes">{{ post[5] }} like(s)</p>
+        <button type="button" class="like-button">Like</button>
+    </div>
+    {% endfor %}
 </body>
 </html>

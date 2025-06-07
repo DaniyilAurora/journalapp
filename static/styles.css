@@ -1,0 +1,43 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial;
+}
+
+.post {
+    background-color: #f2f2f2;
+    margin: 1.5%;
+    padding: 1%;
+}
+
+.title {
+    font-size: 2em;
+}
+
+.text {
+    font-size: 1.2em;
+}
+
+.author {
+    font-size: 1em;
+}
+
+.like-button {
+    border: none;
+    color: #aa0404;
+    padding: 0.5% 2%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+    margin: 0.5% 0%;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border: 2px solid #aa0404;
+}
+
+.like-button:hover {
+    background-color: #aa0404;
+    color: white;
+}
